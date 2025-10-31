@@ -179,4 +179,67 @@ export const workflowsAPI = {
   getTemplates: () => api.get('/api/workflows/templates/list'),
 };
 
+// SMS Campaigns API
+export const smsAPI = {
+  list: () => api.get('/api/sms/'),
+
+  get: (id: string) => api.get(`/api/sms/${id}`),
+
+  create: (data: any) => api.post('/api/sms/', data),
+
+  update: (id: string, data: any) => api.put(`/api/sms/${id}`, data),
+
+  delete: (id: string) => api.delete(`/api/sms/${id}`),
+
+  send: (id: string, recipientIds?: string[]) =>
+    api.post(`/api/sms/${id}/send`, { recipient_ids: recipientIds }),
+
+  getStatus: (id: string) => api.get(`/api/sms/${id}/status`),
+
+  validatePhone: (phone: string) =>
+    api.post('/api/sms/validate-phone', null, { params: { phone } }),
+};
+
+// Social Media API
+export const socialAPI = {
+  createPost: (data: {
+    platforms: string[];
+    content: string;
+    image_url?: string;
+    scheduled_time?: string;
+  }) => api.post('/api/social/posts', data),
+
+  listPosts: (statusFilter?: string) =>
+    api.get('/api/social/posts', { params: { status_filter: statusFilter } }),
+
+  getPost: (id: string) => api.get(`/api/social/posts/${id}`),
+
+  deletePost: (id: string) => api.delete(`/api/social/posts/${id}`),
+
+  publishNow: (id: string) => api.post(`/api/social/posts/${id}/publish`),
+
+  connectAccount: (data: {
+    platform: string;
+    account_id: string;
+    account_name: string;
+    access_token: string;
+    refresh_token?: string;
+  }) => api.post('/api/social/accounts/connect', data),
+
+  listAccounts: () => api.get('/api/social/accounts'),
+
+  disconnectAccount: (id: string) => api.delete(`/api/social/accounts/${id}`),
+
+  getFacebookAuthUrl: (redirectUri: string) =>
+    api.get('/api/social/auth/facebook/url', { params: { redirect_uri: redirectUri } }),
+
+  facebookCallback: (code: string, redirectUri: string) =>
+    api.post('/api/social/auth/facebook/callback', null, {
+      params: { code, redirect_uri: redirectUri },
+    }),
+
+  testPost: (platforms: string[], content: string) =>
+    api.post('/api/social/test-post', null, { params: { platforms, content } }),
+};
+
 export default api;

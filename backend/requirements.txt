@@ -29,6 +29,9 @@ langchain-openai==0.0.5
 sendgrid==6.11.0
 python-dotenv==1.0.0
 
+# SMS Services
+twilio==8.13.0
+
 # Social Media APIs
 facebook-sdk==3.1.0
 requests==2.31.0

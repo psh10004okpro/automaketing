@@ -12,6 +12,8 @@ import Campaigns from './pages/Campaigns';
 import AIContentGenerator from './pages/AIContentGenerator';
 import Leads from './pages/Leads';
 import Workflows from './pages/Workflows';
+import SMSCampaigns from './pages/SMSCampaigns';
+import SocialMedia from './pages/SocialMedia';
 import Layout from './components/Layout';
 
 // Protected Route wrapper
@@ -61,9 +63,11 @@ function App() {
       >
         <Route index element={<EnhancedDashboard />} />
         <Route path="campaigns" element={<Campaigns />} />
-        <Route path="ai-content" element={<AIContentGenerator />} />
+        <Route path="sms" element={<SMSCampaigns />} />
+        <Route path="social" element={<SocialMedia />} />
         <Route path="leads" element={<Leads />} />
         <Route path="workflows" element={<Workflows />} />
+        <Route path="ai-content" element={<AIContentGenerator />} />
       </Route>
 
       {/* Catch all */}
