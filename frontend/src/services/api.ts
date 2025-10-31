@@ -108,4 +108,75 @@ export const aiAPI = {
     }),
 };
 
+// Leads API
+export const leadsAPI = {
+  list: (params?: { search?: string; tag?: string; min_score?: number; skip?: number; limit?: number }) =>
+    api.get('/api/leads/', { params }),
+
+  get: (id: string) => api.get(`/api/leads/${id}`),
+
+  create: (data: any) => api.post('/api/leads/', data),
+
+  update: (id: string, data: any) => api.put(`/api/leads/${id}`, data),
+
+  delete: (id: string) => api.delete(`/api/leads/${id}`),
+
+  getActivities: (id: string, limit?: number) =>
+    api.get(`/api/leads/${id}/activities`, { params: { limit } }),
+
+  addActivity: (id: string, activityType: string, metadata?: any) =>
+    api.post(`/api/leads/${id}/activities`, null, {
+      params: { activity_type: activityType, metadata },
+    }),
+
+  getSummary: () => api.get('/api/leads/stats/summary'),
+
+  import: (leads: any[]) => api.post('/api/leads/import', leads),
+};
+
+// Analytics API
+export const analyticsAPI = {
+  getOverview: (days: number = 30) =>
+    api.get('/api/analytics/overview', { params: { days } }),
+
+  getCampaignPerformance: (days: number = 30) =>
+    api.get('/api/analytics/campaigns/performance', { params: { days } }),
+
+  getCampaignTimeline: (days: number = 30) =>
+    api.get('/api/analytics/campaigns/timeline', { params: { days } }),
+
+  getLeadsGrowth: (days: number = 30) =>
+    api.get('/api/analytics/leads/growth', { params: { days } }),
+
+  getRecentActivities: (limit: number = 50) =>
+    api.get('/api/analytics/activities/recent', { params: { limit } }),
+
+  getEngagementHeatmap: () => api.get('/api/analytics/engagement/heatmap'),
+
+  getInsights: () => api.get('/api/analytics/insights'),
+};
+
+// Workflows API
+export const workflowsAPI = {
+  list: (activeOnly?: boolean) =>
+    api.get('/api/workflows/', { params: { active_only: activeOnly } }),
+
+  get: (id: string) => api.get(`/api/workflows/${id}`),
+
+  create: (data: any) => api.post('/api/workflows/', data),
+
+  update: (id: string, data: any) => api.put(`/api/workflows/${id}`, data),
+
+  delete: (id: string) => api.delete(`/api/workflows/${id}`),
+
+  activate: (id: string) => api.post(`/api/workflows/${id}/activate`),
+
+  deactivate: (id: string) => api.post(`/api/workflows/${id}/deactivate`),
+
+  trigger: (id: string, triggerData: any) =>
+    api.post(`/api/workflows/${id}/trigger`, triggerData),
+
+  getTemplates: () => api.get('/api/workflows/templates/list'),
+};
+
 export default api;

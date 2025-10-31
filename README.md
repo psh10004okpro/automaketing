@@ -23,18 +23,25 @@ A comprehensive, AI-powered marketing automation platform built for startups and
 - Wait steps and time delays
 - Automated tagging and segmentation
 
-### 📊 Analytics & Reporting
-- Real-time campaign performance metrics
-- Channel-wise ROI tracking
+### 📊 Analytics & Reporting (NEW ✨)
+- **Real-time interactive charts** with Recharts
+- Campaign performance timeline visualization
+- Lead growth tracking with cumulative metrics
+- Engagement heatmap by day and hour
 - AI-powered insights and recommendations
-- Export reports in PDF/CSV format
+- Channel-wise ROI tracking
+- Period comparison (7, 14, 30, 90 days)
+- Recent activity feed
 
-### 👥 Lead Management & CRM
-- Lead scoring and prioritization
-- Activity tracking
+### 👥 Lead Management & CRM (NEW ✨)
+- **Full CRUD operations** for leads
+- Lead scoring and prioritization (Hot/Warm/Cold)
+- Activity tracking and logging
 - Custom fields and tags
-- Segmentation
-- Hot leads identification
+- Advanced search and filtering
+- Bulk lead import
+- Lead statistics and summaries
+- Hot leads identification (score >= 70)
 
 ### 📱 Social Media Management
 - Schedule posts across Facebook, Instagram, Twitter
@@ -57,6 +64,7 @@ A comprehensive, AI-powered marketing automation platform built for startups and
 - **Framework:** React 18 + TypeScript
 - **Build Tool:** Vite
 - **Styling:** Tailwind CSS
+- **Charts:** Recharts (Line, Area, Bar charts)
 - **State Management:** Zustand
 - **API Client:** Axios + React Query
 - **Routing:** React Router v6
@@ -148,6 +156,58 @@ npm run dev
 Once the backend is running, visit:
 - **Swagger UI:** http://localhost:8000/docs
 - **ReDoc:** http://localhost:8000/redoc
+
+### 🔑 Key API Endpoints
+
+#### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login and get tokens
+- `GET /api/auth/me` - Get current user info
+- `POST /api/auth/refresh` - Refresh access token
+
+#### AI Content
+- `POST /api/ai/generate` - Generate marketing content
+- `POST /api/ai/optimize-subject` - Optimize email subject lines
+- `POST /api/ai/social-captions` - Generate social media captions
+
+#### Campaigns
+- `POST /api/campaigns/` - Create email campaign
+- `GET /api/campaigns/` - List all campaigns
+- `GET /api/campaigns/{id}` - Get campaign details
+- `POST /api/campaigns/{id}/send` - Send campaign
+- `POST /api/campaigns/{id}/track/open` - Track email open
+- `POST /api/campaigns/{id}/track/click` - Track email click
+
+#### Leads (NEW ✨)
+- `POST /api/leads/` - Create new lead
+- `GET /api/leads/` - List leads (with filtering)
+- `GET /api/leads/{id}` - Get lead details
+- `PUT /api/leads/{id}` - Update lead
+- `DELETE /api/leads/{id}` - Delete lead
+- `GET /api/leads/{id}/activities` - Get lead activities
+- `POST /api/leads/{id}/activities` - Add activity
+- `GET /api/leads/stats/summary` - Get leads summary
+- `POST /api/leads/import` - Bulk import leads
+
+#### Analytics (NEW ✨)
+- `GET /api/analytics/overview` - Get overview metrics
+- `GET /api/analytics/campaigns/performance` - Campaign performance
+- `GET /api/analytics/campaigns/timeline` - Campaign timeline data
+- `GET /api/analytics/leads/growth` - Lead growth over time
+- `GET /api/analytics/activities/recent` - Recent activities
+- `GET /api/analytics/engagement/heatmap` - Engagement heatmap
+- `GET /api/analytics/insights` - AI-powered insights
+
+#### Workflows (NEW ✨)
+- `POST /api/workflows/` - Create workflow
+- `GET /api/workflows/` - List workflows
+- `GET /api/workflows/{id}` - Get workflow details
+- `PUT /api/workflows/{id}` - Update workflow
+- `DELETE /api/workflows/{id}` - Delete workflow
+- `POST /api/workflows/{id}/activate` - Activate workflow
+- `POST /api/workflows/{id}/deactivate` - Deactivate workflow
+- `POST /api/workflows/{id}/trigger` - Manually trigger workflow
+- `GET /api/workflows/templates/list` - Get workflow templates
 
 ## 🔑 Environment Variables
 
@@ -291,19 +351,20 @@ For issues and questions:
 
 ## 🗺️ Roadmap
 
-### Phase 1 (Current)
+### Phase 1 (Completed ✅)
 - ✅ User authentication
 - ✅ AI content generation
 - ✅ Email campaigns
 - ✅ Basic workflow automation
 - ✅ Dashboard and analytics
 
-### Phase 2 (Planned)
-- [ ] Advanced workflow builder with drag-and-drop
-- [ ] Social media posting
-- [ ] Lead scoring and CRM
-- [ ] A/B testing
-- [ ] Advanced analytics with charts
+### Phase 2 (Completed ✅)
+- ✅ **Lead Management CRM** - Full CRUD, scoring, filtering
+- ✅ **Advanced Analytics API** - Timeline, growth, heatmaps
+- ✅ **Interactive Charts** - Real-time data visualization with Recharts
+- ✅ **Workflow Management UI** - Templates and activation controls
+- ✅ **Enhanced Dashboard** - Period selection, AI insights
+- ✅ **Activity Tracking** - Lead engagement monitoring
 
 ### Phase 3 (Future)
 - [ ] SMS campaigns
@@ -324,10 +385,12 @@ For issues and questions:
 
 ## 📊 Project Stats
 
-- **Lines of Code:** ~15,000+
-- **API Endpoints:** 20+
-- **React Components:** 10+
+- **Lines of Code:** ~20,000+
+- **API Endpoints:** 45+
+- **React Components:** 15+
+- **React Pages:** 8
 - **Database Tables:** 7
+- **Interactive Charts:** 3 (Recharts)
 
 ## 🙏 Acknowledgments
 

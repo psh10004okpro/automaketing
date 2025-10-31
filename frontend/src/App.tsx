@@ -7,8 +7,11 @@ import { authAPI } from './services/api';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import EnhancedDashboard from './pages/EnhancedDashboard';
 import Campaigns from './pages/Campaigns';
 import AIContentGenerator from './pages/AIContentGenerator';
+import Leads from './pages/Leads';
+import Workflows from './pages/Workflows';
 import Layout from './components/Layout';
 
 // Protected Route wrapper
@@ -56,10 +59,11 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<Dashboard />} />
+        <Route index element={<EnhancedDashboard />} />
         <Route path="campaigns" element={<Campaigns />} />
         <Route path="ai-content" element={<AIContentGenerator />} />
-        {/* Add more routes as needed */}
+        <Route path="leads" element={<Leads />} />
+        <Route path="workflows" element={<Workflows />} />
       </Route>
 
       {/* Catch all */}
