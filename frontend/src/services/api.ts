@@ -271,4 +271,41 @@ export const abTestAPI = {
   delete: (id: string) => api.delete(`/api/ab-tests/${id}`),
 };
 
+// Drip Campaign API
+export const dripCampaignAPI = {
+  create: (data: any) => api.post('/api/drip-campaigns/', data),
+
+  list: (statusFilter?: string) =>
+    api.get('/api/drip-campaigns/', { params: { status_filter: statusFilter } }),
+
+  get: (id: string) => api.get(`/api/drip-campaigns/${id}`),
+
+  update: (id: string, data: any) => api.put(`/api/drip-campaigns/${id}`, data),
+
+  delete: (id: string) => api.delete(`/api/drip-campaigns/${id}`),
+
+  addStep: (campaignId: string, data: any) =>
+    api.post(`/api/drip-campaigns/${campaignId}/steps`, data),
+
+  updateStep: (stepId: string, data: any) =>
+    api.put(`/api/drip-campaigns/steps/${stepId}`, data),
+
+  deleteStep: (stepId: string) => api.delete(`/api/drip-campaigns/steps/${stepId}`),
+
+  activate: (id: string) => api.post(`/api/drip-campaigns/${id}/activate`),
+
+  pause: (id: string) => api.post(`/api/drip-campaigns/${id}/pause`),
+
+  enroll: (campaignId: string, data: any) =>
+    api.post(`/api/drip-campaigns/${campaignId}/enroll`, data),
+
+  unsubscribe: (campaignId: string, subscriberId: string) =>
+    api.post(`/api/drip-campaigns/${campaignId}/subscribers/${subscriberId}/unsubscribe`),
+
+  getStats: (id: string) => api.get(`/api/drip-campaigns/${id}/stats`),
+
+  listSubscribers: (campaignId: string) =>
+    api.get(`/api/drip-campaigns/${campaignId}/subscribers`),
+};
+
 export default api;
