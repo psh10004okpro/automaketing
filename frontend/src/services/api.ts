@@ -308,4 +308,34 @@ export const dripCampaignAPI = {
     api.get(`/api/drip-campaigns/${campaignId}/subscribers`),
 };
 
+// Segment API
+export const segmentAPI = {
+  create: (data: any) => api.post('/api/segments/', data),
+
+  list: (typeFilter?: string) =>
+    api.get('/api/segments/', { params: { type_filter: typeFilter } }),
+
+  get: (id: string) => api.get(`/api/segments/${id}`),
+
+  update: (id: string, data: any) => api.put(`/api/segments/${id}`, data),
+
+  delete: (id: string) => api.delete(`/api/segments/${id}`),
+
+  calculate: (id: string) => api.post(`/api/segments/${id}/calculate`),
+
+  duplicate: (id: string, newName?: string) =>
+    api.post(`/api/segments/${id}/duplicate`, null, { params: { new_name: newName } }),
+
+  preview: (data: any) => api.post('/api/segments/preview', data),
+
+  getLeads: (id: string, limit: number = 100, offset: number = 0) =>
+    api.get(`/api/segments/${id}/leads`, { params: { limit, offset } }),
+
+  addLeads: (id: string, leadIds: string[]) =>
+    api.post(`/api/segments/${id}/leads`, { lead_ids: leadIds }),
+
+  removeLeads: (id: string, leadIds: string[]) =>
+    api.delete(`/api/segments/${id}/leads`, { data: { lead_ids: leadIds } }),
+};
+
 export default api;

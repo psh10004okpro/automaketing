@@ -23,7 +23,7 @@ export default function Layout() {
                 </h1>
               </div>
 
-              <div className="hidden sm:ml-8 sm:flex sm:space-x-3">
+              <div className="hidden sm:ml-8 sm:flex sm:space-x-2">
                 <Link
                   to="/"
                   className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -59,6 +59,12 @@ export default function Layout() {
                   className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 >
                   Drip
+                </Link>
+                <Link
+                  to="/segments"
+                  className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                >
+                  Segments
                 </Link>
                 <Link
                   to="/leads"
