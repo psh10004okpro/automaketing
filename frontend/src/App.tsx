@@ -17,6 +17,7 @@ import SocialMedia from './pages/SocialMedia';
 import ABTesting from './pages/ABTesting';
 import DripCampaigns from './pages/DripCampaigns';
 import Segments from './pages/Segments';
+import Reports from './pages/Reports';
 import Layout from './components/Layout';
 
 // Protected Route wrapper
@@ -71,6 +72,7 @@ function App() {
         <Route path="ab-testing" element={<ABTesting />} />
         <Route path="drip-campaigns" element={<DripCampaigns />} />
         <Route path="segments" element={<Segments />} />
+        <Route path="reports" element={<Reports />} />
         <Route path="leads" element={<Leads />} />
         <Route path="workflows" element={<Workflows />} />
         <Route path="ai-content" element={<AIContentGenerator />} />

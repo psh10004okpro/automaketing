@@ -338,4 +338,25 @@ export const segmentAPI = {
     api.delete(`/api/segments/${id}/leads`, { data: { lead_ids: leadIds } }),
 };
 
+// Reports API
+export const reportAPI = {
+  create: (data: any) => api.post('/api/reports/', data),
+
+  list: (typeFilter?: string) =>
+    api.get('/api/reports/', { params: { type_filter: typeFilter } }),
+
+  get: (id: string) => api.get(`/api/reports/${id}`),
+
+  delete: (id: string) => api.delete(`/api/reports/${id}`),
+
+  run: (id: string) => api.post(`/api/reports/${id}/run`),
+
+  quickReport: (data: any) => api.post('/api/reports/quick-report', data),
+
+  listExecutions: (reportId: string, limit: number = 10) =>
+    api.get(`/api/reports/${reportId}/executions`, { params: { limit } }),
+
+  getExecution: (executionId: string) => api.get(`/api/reports/executions/${executionId}`),
+};
+
 export default api;
