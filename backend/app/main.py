@@ -78,7 +78,7 @@ async def health_check():
 
 
 # Import and include routers
-from app.api import auth, campaigns, ai_content, leads, analytics, workflows, sms_campaigns, social_media
+from app.api import auth, campaigns, ai_content, leads, analytics, workflows, sms_campaigns, social_media, ab_tests
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(campaigns.router, prefix="/api/campaigns", tags=["Campaigns"])
@@ -88,6 +88,7 @@ app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"]
 app.include_router(workflows.router, prefix="/api/workflows", tags=["Workflows"])
 app.include_router(sms_campaigns.router, prefix="/api/sms", tags=["SMS Campaigns"])
 app.include_router(social_media.router, prefix="/api/social", tags=["Social Media"])
+app.include_router(ab_tests.router, prefix="/api/ab-tests", tags=["A/B Testing"])
 
 
 if __name__ == "__main__":

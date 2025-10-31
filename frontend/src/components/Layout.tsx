@@ -23,7 +23,7 @@ export default function Layout() {
                 </h1>
               </div>
 
-              <div className="hidden sm:ml-8 sm:flex sm:space-x-6">
+              <div className="hidden sm:ml-8 sm:flex sm:space-x-4">
                 <Link
                   to="/"
                   className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -47,6 +47,12 @@ export default function Layout() {
                   className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                 >
                   Social
+                </Link>
+                <Link
+                  to="/ab-testing"
+                  className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                >
+                  A/B Test
                 </Link>
                 <Link
                   to="/leads"

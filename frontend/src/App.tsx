@@ -14,6 +14,7 @@ import Leads from './pages/Leads';
 import Workflows from './pages/Workflows';
 import SMSCampaigns from './pages/SMSCampaigns';
 import SocialMedia from './pages/SocialMedia';
+import ABTesting from './pages/ABTesting';
 import Layout from './components/Layout';
 
 // Protected Route wrapper
@@ -65,6 +66,7 @@ function App() {
         <Route path="campaigns" element={<Campaigns />} />
         <Route path="sms" element={<SMSCampaigns />} />
         <Route path="social" element={<SocialMedia />} />
+        <Route path="ab-testing" element={<ABTesting />} />
         <Route path="leads" element={<Leads />} />
         <Route path="workflows" element={<Workflows />} />
         <Route path="ai-content" element={<AIContentGenerator />} />

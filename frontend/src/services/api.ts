@@ -242,4 +242,33 @@ export const socialAPI = {
     api.post('/api/social/test-post', null, { params: { platforms, content } }),
 };
 
+// A/B Testing API
+export const abTestAPI = {
+  create: (data: any) => api.post('/api/ab-tests/', data),
+
+  list: (statusFilter?: string, typeFilter?: string) =>
+    api.get('/api/ab-tests/', {
+      params: { status_filter: statusFilter, type_filter: typeFilter },
+    }),
+
+  get: (id: string) => api.get(`/api/ab-tests/${id}`),
+
+  start: (id: string, recipientIds: string[]) =>
+    api.post(`/api/ab-tests/${id}/start`, { recipient_ids: recipientIds }),
+
+  updateMetrics: (id: string, variant: string, metric: string, increment: number = 1) =>
+    api.post(`/api/ab-tests/${id}/metrics`, { variant, metric, increment }),
+
+  getStats: (id: string) => api.get(`/api/ab-tests/${id}/stats`),
+
+  checkWinner: (id: string) => api.post(`/api/ab-tests/${id}/check-winner`),
+
+  declareWinner: (id: string, winnerVariant: string) =>
+    api.post(`/api/ab-tests/${id}/declare-winner`, { winner_variant: winnerVariant }),
+
+  cancel: (id: string) => api.post(`/api/ab-tests/${id}/cancel`),
+
+  delete: (id: string) => api.delete(`/api/ab-tests/${id}`),
+};
+
 export default api;
